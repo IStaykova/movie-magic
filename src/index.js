@@ -1,4 +1,6 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
 const handlebars = require('express-handlebars');
 const path = require('path');
 const routes = require('./routes');
@@ -16,4 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 
-app.listen(port, () => console.log(`Server is listening on Port ${port}..`));
+mongoose.connect(`mongodb://localhost:27017/magic-movies`)
+.then(() => {
+    console.log("DB Connected")
+    app.listen(port, () => console.log(`Server is listening on Port ${port}..`));
+})
+.catch(err => console.log('Cannot connect to DB'));
+
