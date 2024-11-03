@@ -1,11 +1,13 @@
 const router = require('express').Router();
+const castService = require('../services/castService');
 
 router.get('/cast/create', (req, res) => {
     res.render('cast/create');
 });
-router.post('/cast/create', (req, res) => {
-    const body = req.body;
-    console.log(body);
+router.post('/cast/create', async (req, res) => {
+    const castData = req.body;
+    await castService.create(castData);
+    
     res.redirect('/');
 })
 
