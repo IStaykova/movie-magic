@@ -39,7 +39,6 @@ const movieSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Cast'
     }] 
-
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
