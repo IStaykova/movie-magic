@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const handlebars = require('express-handlebars');
 const path = require('path');
@@ -16,6 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(routes);
 
 mongoose.connect(`mongodb://localhost:27017/magic-movies`)
