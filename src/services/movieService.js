@@ -23,4 +23,6 @@ exports.attach = async (movieId, castId) => {
     const movie = await this.getOne(movieId)
     movie.casts.push(castId);
     return movie.save();
-}
+};
+
+exports.delete = (movieId) => Movie.findByIdAndDelete(movieId);
