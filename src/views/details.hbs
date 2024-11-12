@@ -1,5 +1,4 @@
 
-
 <section id="details-page">
 
 <div class="main_card">
@@ -21,6 +20,11 @@
 
         <p class="disc">Description: {{movie.description}}</p>
     </div>
+
+    <div class="details-btn">
+            <a href='/movies/{{movie._id}}/edit' id="edit-button">Edit</a>
+            <a href='#' id="delete-button">Delete</a>
+    </div>
 </div>
 <div class="card_right">
     <img src="{{movie.imageUrl}}"
@@ -41,9 +45,11 @@
             </div>
         </div>
         {{else}}
-        <div class="no-posts">
-                <p class="no-offer">There are no casts yet...</p>
-            </div>
+        <div class="main-cast-card">
+        <div class="no-cast">
+        <p>There are no casts added yet...</p>
+        </div>
+        </div>
         {{/each}}
 </div>
 </section>
